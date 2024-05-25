@@ -3,3 +3,6 @@ services:
   app:
     container_name: 'app_map'
     build: ./app
+    ports: 
+    - "5252:5252"
+    network_mode: host

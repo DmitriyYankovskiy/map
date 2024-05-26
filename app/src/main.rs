@@ -1,4 +1,7 @@
 mod server;
+mod db;
+mod internal;
+
 use server::run;
 
 #[derive(Clone)]

@@ -1,3 +1,5 @@
+use super::Uuid;
+
 type Ip = [u8; 4];
 
 struct Machine {
@@ -9,15 +11,15 @@ pub async fn add(machine: Machine) {
     todo!();
 }
 
-pub async fn update(name: String, new_ip: Ip) {
+pub async fn update(id: Uuid, upd_machine: Machine) {
     todo!();
 }
 
-pub async fn delete(name: String) {
+pub async fn delete(id: Uuid) {
     todo!();
 }
 
 
-pub async fn get_ip(name: String) -> Ip {
+pub async fn get(id: Uuid) -> Machine {
     todo!();
 }

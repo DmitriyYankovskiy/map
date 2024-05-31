@@ -10,3 +10,6 @@ edition = "2021"
 axum = {version = "*", features = ["ws"]}
 tokio = {version = "*", features = ["full"]}
 tower-http = {version = "*", features = ["fs"]}
+uuid = {version = "*", features = ["macro-diagnostics"]}
+serde = {version = "*", features = ["derive"]}
+serde_json = {version = "*"}

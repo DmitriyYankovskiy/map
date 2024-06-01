@@ -2,7 +2,7 @@ use super::Uuid;
 
 type Port = u16;
 
-#[derive(serde::Serialize)]
+#[derive(serde::Serialize, serde::Deserialize)]
 pub struct Project {
     pub name: String,
     pub port: Port,

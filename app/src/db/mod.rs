@@ -7,14 +7,14 @@ use machine::Machine;
 
 pub trait Data {
     fn get_project_by_id(&self, id: Uuid) -> Project;
-    fn create_project(&self, new_project: Project);
+    fn create_project(&self, new_project: &Project);
     fn delete_project(&self, id: Uuid);
-    fn update_project(&self, id: Uuid, upd_project: Project);
+    fn update_project(&self, id: Uuid, upd_project: &Project);
 
     fn get_machine_by_id(&self, id: Uuid) -> Machine;
-    fn create_machine(&self, new_machine: Machine);
+    fn create_machine(&self, new_machine: &Machine);
     fn delete_machine(&self, id: Uuid);
-    fn update_machine(&self, id: Uuid, new_machine: Machine);
+    fn update_machine(&self, id: Uuid, new_machine: &Machine);
 }
 
 
@@ -33,7 +33,7 @@ impl Data for Postgres {
         }
     }
 
-    fn create_project(&self, new_project: Project) {
+    fn create_project(&self, new_project: &Project) {
         println!(">>> create project");
     }
 

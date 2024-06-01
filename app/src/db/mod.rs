@@ -12,9 +12,9 @@ pub trait Data {
     fn update_project(&self, id: Uuid, upd_project: Project);
 
     fn get_machine_by_id(&self, id: Uuid) -> Machine;
-    fn create_machine(&self, new_project: Project);
+    fn create_machine(&self, new_machine: Machine);
     fn delete_machine(&self, id: Uuid);
-    fn update_machine(&self, id: Uuid, upd_project: Project);
+    fn update_machine(&self, id: Uuid, new_machine: Machine);
 }
 
 
@@ -54,7 +54,7 @@ impl Data for Postgres {
         }
     }
 
-    fn create_machine(&self, new_project: Project) {
+    fn create_machine(&self, new_machine: Machine) {
         println!(">>> create machine");
     }
 
@@ -63,7 +63,7 @@ impl Data for Postgres {
         println!(">>> delete {{{}}} machine", id.as_u128());
     }
 
-    fn update_machine(&self, id: Uuid, upd_project: Project) {
+    fn update_machine(&self, id: Uuid, upd_machine: Machine) {
         println!(">>> update {{{}}} machine", id.as_u128());
     }
 }

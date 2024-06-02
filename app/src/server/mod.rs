@@ -1,16 +1,16 @@
 mod routers;
 
-use axum::{handler, routing::get, Router};
+use axum::Router;
 use std::net::SocketAddr;
 
-use crate::App;
+use crate::State;
 
 
 
-pub async fn run(app: App) {
+pub async fn run(state: State) {
     let router = Router::new()
-        .nest("/", routers::site::index())
-        .nest("/api", routers::api::index(app.clone()));
+        .nest("/", routers::site::index(state.clone()))
+        .nest("/api", routers::api::index(state.clone()));
     let addr = SocketAddr::from(([127, 0, 0, 1], 5252));
     let listner = tokio::net::TcpListener::bind(addr).await.unwrap();
     axum::serve(listner, router).await.unwrap();

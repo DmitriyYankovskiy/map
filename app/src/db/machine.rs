@@ -1,5 +1,3 @@
-use super::Uuid;
-
 type Ip = [u8; 4];
 
 #[derive(serde::Serialize, serde::Deserialize)]

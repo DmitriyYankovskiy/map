@@ -1,5 +1,3 @@
-use super::Uuid;
-
 type Port = u16;
 
 #[derive(serde::Serialize, serde::Deserialize)]

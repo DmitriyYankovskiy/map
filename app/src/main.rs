@@ -4,18 +4,23 @@ mod internal;
 
 use std::sync::Arc;
 
-use server::run;
+use {
+    server::run,
+    internal::App,
+};
 
 #[derive(Clone)]
-struct App {
-    pub data: Arc<dyn db::Data + Sync + Send>,
+struct State {
+    pub app: App,
 }
 
 #[tokio::main]
 async fn main() {
-    let app = App{
-        data: Arc::new(db::Postgres {
-        }),
+    let state = State {
+        app: App {
+            data: Arc::new(db::Postgres {
+            }),
+        }        
     };
-    run(app).await;
+    run(state).await;
 }

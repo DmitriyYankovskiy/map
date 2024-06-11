@@ -1,26 +1,30 @@
 mod server;
 mod db;
-mod internal;
+mod services;
 
 use std::sync::Arc;
 
+use services::pinger::Pinger;
+
 use {
     server::run,
-    internal::App,
+    services::pinger,
 };
+
+type Ip = [u8; 4];
+type Port = u16;
 
 #[derive(Clone)]
 struct State {
-    pub app: App,
+    pub data: Arc<dyn db::Data + Sync + Send>,
+    pub pinger: Arc<pinger::Pinger>,
 }
 
 #[tokio::main]
 async fn main() {
     let state = State {
-        app: App {
-            data: Arc::new(db::Postgres {
-            }),
-        }        
+        data: Arc::new(db::postgres::connect()),
+        pinger: Arc::new(pinger::Pinger::new()),
     };
     run(state).await;
 }

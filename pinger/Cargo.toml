@@ -12,3 +12,4 @@ tower-http = {version = "*", features = ["fs"]}
 uuid = {version = "*", features = ["macro-diagnostics"]}
 serde = {version = "*", features = ["derive"]}
 serde_json = {version = "*"}
+reqwest = {version = "*"}
